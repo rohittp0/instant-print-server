@@ -1,10 +1,7 @@
 import base64
-import random
-import shutil
-from glob import glob
 from pathlib import Path
 
-from fastapi import FastAPI, UploadFile, Form
+from fastapi import FastAPI, UploadFile
 from fastapi.responses import RedirectResponse
 from starlette.requests import Request
 from starlette.staticfiles import StaticFiles
@@ -18,7 +15,7 @@ Path("static/").mkdir(parents=True, exist_ok=True)
 
 templates = Jinja2Templates(directory="templates")
 
-socket: WebSocket = None
+socket: WebSocket | None = None
 
 
 @app.websocket("/ws")
