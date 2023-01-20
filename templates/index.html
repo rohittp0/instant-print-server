@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/static/files.css">
+
+    <title>Share</title>
+</head>
+<body>
+
+<header>
+    <h1>Print PDF</h1>
+</header>
+
+<main class="content">
+    <form action="/print/" enctype="multipart/form-data" method="post">
+        <input name="file" type="file"  required accept="application/pdf">
+        <input type="submit" value="Print" class="button">
+    </form>
+
+    {% if status %}
+        <h3 class="status">{{ status }}</h3>
+    {% endif %}
+</main>
+
+</body>
+</html>
